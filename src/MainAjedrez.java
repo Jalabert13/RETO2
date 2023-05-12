@@ -1,5 +1,5 @@
 public class MainAjedrez {
     public static void main(String[] args) {
-        System.out.println("Me cago en Java");
+        System.out.println("Hola");
     }
 }
