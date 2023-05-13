@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="principal_vbox" alignment="CENTER" prefHeight="697.0" prefWidth="1091.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox fx:id="principal_hbox" alignment="TOP_CENTER" maxWidth="406.0" prefHeight="110.0">
+      <cursor>
+         <Cursor fx:constant="DEFAULT" />
+      </cursor>
+   </HBox>
+   <VBox fx:id="sec_vbox" alignment="TOP_CENTER" prefHeight="280.0" prefWidth="1051.0" VBox.vgrow="ALWAYS" />
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <children>
+          <Button fx:id="boton_acceder" alignment="CENTER" contentDisplay="BOTTOM" onAction="#onHelloButtonClick" prefHeight="80.0" prefWidth="118.0" text="Acceder!" textFill="WHITE">
+            <font>
+               <Font name="Roboto Light" size="14.0" />
+            </font>
+          </Button>
+      </children>
+   </HBox>
+   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="404.0" text="Hecho por Juan, Juan Carlos Rabasco, Claudia, Adrián." textAlignment="RIGHT">
+      <font>
+         <Font name="Roboto Light" size="16.0" />
+      </font>
+   </Label>
+
+
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+</VBox>
