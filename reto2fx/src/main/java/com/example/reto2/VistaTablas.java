@@ -15,12 +15,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class HelloApplication extends Application {
+public class VistaTablas extends Application {
 
     private TableView table = new TableView();
-    Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("menu_tablas.fxml"));
 
-    public HelloApplication() throws IOException {
+    public VistaTablas() throws IOException {
 
     }
 

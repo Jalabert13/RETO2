@@ -1,7 +1,4 @@
 #principal_vbox {
-    -fx-background-color: -webkit-linear-gradient(top, #fff, #00FFFF);
-    -fx-background-color: -moz-linear-gradient(top, #fff, #00FFFF);
-    -fx-background-color: -o-linear-gradient(top, #fff, #00FFFF);
     -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
 }
 
@@ -24,3 +21,5 @@
 #boton_acceder:hover {
     -fx-background-color: #6B6462;
 }
+
+
