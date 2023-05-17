@@ -19,7 +19,7 @@
    <VBox fx:id="sec_vbox" alignment="TOP_CENTER" prefHeight="280.0" prefWidth="1051.0" VBox.vgrow="ALWAYS" />
    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
-          <Button fx:id="boton_acceder" alignment="CENTER" contentDisplay="BOTTOM" onAction="#onHelloButtonClick" prefHeight="80.0" prefWidth="118.0" text="Acceder!" textFill="WHITE">
+          <Button fx:id="boton_acceder" alignment="CENTER" contentDisplay="BOTTOM" onAction="#boton1" prefHeight="80.0" prefWidth="118.0" text="Acceder!" textFill="WHITE">
             <font>
                <Font name="Roboto Light" size="14.0" />
             </font>

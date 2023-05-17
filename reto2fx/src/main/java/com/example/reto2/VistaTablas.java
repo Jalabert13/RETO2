@@ -14,9 +14,12 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VistaTablas extends Application {
 
+    private Button boton1;
     private TableView table = new TableView();
     Parent root = FXMLLoader.load(getClass().getResource("menu_tablas.fxml"));
 
@@ -32,7 +35,7 @@ public class VistaTablas extends Application {
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(root);
-        stage.getIcons().add(new Image("https://example.com/javaicon.png"));
+        stage.getIcons().add(new Image("file://icon.png"));
         stage.setTitle("Benidorm Chess Open");
 
 
@@ -42,11 +45,8 @@ public class VistaTablas extends Application {
     }
 
 
-    static Connection getConnexion() throws SQLException {
-        String url = "jdbc:mariadb://localhost/ajedrez?serverTimezone=UTC";
-        String user = "root";
-        String password = "";
-        return DriverManager.getConnection(url, user, password);
-    }
+
+
+
 }
 

@@ -32,7 +32,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(root);
-        stage.getIcons().add(new Image("https://example.com/javaicon.png"));
+
+        stage.getIcons().add(new Image("file:icon.png"));
+
         stage.setTitle("Benidorm Chess Open");
 
 

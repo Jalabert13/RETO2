@@ -1,7 +1,4 @@
 #principal_vbox {
-    -fx-background-color: -webkit-linear-gradient(top, #fff, #00FFFF);
-    -fx-background-color: -moz-linear-gradient(top, #fff, #00FFFF);
-    -fx-background-color: -o-linear-gradient(top, #fff, #00FFFF);
     -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
 }
 
@@ -17,12 +14,13 @@
     -fx-background-image: url(img/logo.png);
     -fx-background-repeat: no-repeat;
 }
-#boton_acceder {
+#boton_acceder, #boton2 ,#boton3 {
     -fx-background-color: #383433;
 }
 
-#boton_acceder:hover {
+#boton_acceder:hover, #boton2:hover, #boton3:hover {
     -fx-background-color: #6B6462;
 }
+
 
 
