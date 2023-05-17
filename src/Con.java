@@ -5,9 +5,9 @@ import java.sql.SQLException;
 
 public class Con {
     static Connection getConnexion() throws SQLException {
-        String url = "jdbc:mariadb://localhost:3306/Ajedrez";
+        String url = "jdbc:mariadb://localhost:3306/Ajedrez_empty";
         String user = "root";
-        String password = "";
+        String password = "root";
         return DriverManager.getConnection(url, user, password);
     }
 }

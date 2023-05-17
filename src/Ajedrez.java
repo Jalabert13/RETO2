@@ -44,5 +44,17 @@ public class Ajedrez {
         }
     }
 
+    private static void insertbyElo(int elo){
+        try(Connection cnx = Con.getConnexion()){
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+
+
 }
 

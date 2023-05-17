@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 15-05-2023 a las 00:17:29
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Servidor: localhost:3306
+-- Tiempo de generación: 17-05-2023 a las 08:31:44
+-- Versión del servidor: 10.1.48-MariaDB-0ubuntu0.18.04.1
+-- Versión de PHP: 7.2.24-0ubuntu0.18.04.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,8 +18,6 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `Ajedrez`
-CREATE DATABASE Ajedrez;
-USE Ajedrez;
 --
 
 -- --------------------------------------------------------
@@ -33,7 +30,7 @@ CREATE TABLE `gen_clasifica` (
   `nom_jugador` varchar(50) NOT NULL,
   `puesto` int(11) DEFAULT NULL,
   `jug_torneo` enum('A','B') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `gen_clasifica`
@@ -233,7 +230,7 @@ CREATE TABLE `jugador` (
   `club` varchar(15) DEFAULT NULL,
   `huesped` tinyint(1) DEFAULT NULL,
   `jug_torneo` enum('A','B') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `jugador`
@@ -427,12 +424,12 @@ INSERT INTO `jugador` (`idfide`, `nom_jugador`, `elo`, `club`, `huesped`, `jug_t
 --
 
 CREATE TABLE `premios` (
-  `puesto_premio` int(3) NOT NULL DEFAULT 0,
+  `puesto_premio` int(3) NOT NULL DEFAULT '0',
   `nom_torneo` enum('A','B') NOT NULL,
   `tipo` enum('GENERAL','SUB2400','SUB2200','C.VALENCIANA','SUB1800','SUB1600','SUB1400','HOSPEDAJE') NOT NULL,
   `valor` int(11) DEFAULT NULL,
   `nom_jugador` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `premios`
@@ -440,25 +437,50 @@ CREATE TABLE `premios` (
 
 INSERT INTO `premios` (`puesto_premio`, `nom_torneo`, `tipo`, `valor`, `nom_jugador`) VALUES
 (1, 'A', 'GENERAL', 5000, 'Saydaliev, Saidakbar'),
+(1, 'A', 'SUB2400', 225, NULL),
+(1, 'A', 'SUB2200', 225, NULL),
 (1, 'A', 'C.VALENCIANA', 500, 'Chernikov, Vladimir'),
 (1, 'B', 'GENERAL', 3000, 'Goktepe, Derin'),
 (1, 'B', 'C.VALENCIANA', 500, 'Palao, Adriana'),
+(1, 'B', 'SUB1800', 225, NULL),
+(1, 'B', 'SUB1600', 225, NULL),
+(1, 'B', 'SUB1400', 225, NULL),
 (2, 'A', 'GENERAL', 3000, 'Sattarov, Bobir'),
+(2, 'A', 'SUB2400', 150, NULL),
+(2, 'A', 'SUB2200', 150, NULL),
 (2, 'A', 'C.VALENCIANA', 400, 'Gavarrete, Nahun'),
 (2, 'B', 'GENERAL', 1500, 'Sai Hrushikesh Simhdri'),
 (2, 'B', 'C.VALENCIANA', 400, 'Lopez Palomar, Jose'),
+(2, 'B', 'SUB1800', 150, NULL),
+(2, 'B', 'SUB1600', 150, NULL),
+(2, 'B', 'SUB1400', 150, NULL),
 (3, 'A', 'GENERAL', 1200, 'Ajay Karthikeyan'),
+(3, 'A', 'SUB2400', 120, NULL),
+(3, 'A', 'SUB2200', 120, NULL),
 (3, 'A', 'C.VALENCIANA', 300, 'Ilinca Ilinca, Felix Anto'),
 (3, 'B', 'GENERAL', 1200, 'Mallevaey, Guillaume'),
 (3, 'B', 'C.VALENCIANA', 300, 'Selva Salvador, Antonio'),
+(3, 'B', 'SUB1800', 120, NULL),
+(3, 'B', 'SUB1600', 120, NULL),
+(3, 'B', 'SUB1400', 120, NULL),
 (4, 'A', 'GENERAL', 800, 'Sarkar, Justin'),
+(4, 'A', 'SUB2400', 100, NULL),
+(4, 'A', 'SUB2200', 100, NULL),
 (4, 'A', 'C.VALENCIANA', 250, 'Grabuzova, Tatiana'),
 (4, 'B', 'GENERAL', 1000, 'Tsiapko, Andrii'),
 (4, 'B', 'C.VALENCIANA', 250, 'Izquierdo Carbellido, Pablo'),
+(4, 'B', 'SUB1800', 100, NULL),
+(4, 'B', 'SUB1600', 100, NULL),
+(4, 'B', 'SUB1400', 100, NULL),
 (5, 'A', 'GENERAL', 700, 'Van Foreest, Machteld'),
+(5, 'A', 'SUB2400', 80, NULL),
+(5, 'A', 'SUB2200', 80, NULL),
 (5, 'A', 'C.VALENCIANA', 200, 'Ibanez Aullana, Ramon'),
 (5, 'B', 'GENERAL', 800, 'Leelajai Krishna N'),
 (5, 'B', 'C.VALENCIANA', 200, 'Roca Cruz, Rafael'),
+(5, 'B', 'SUB1800', 80, NULL),
+(5, 'B', 'SUB1600', 80, NULL),
+(5, 'B', 'SUB1400', 80, NULL),
 (6, 'A', 'GENERAL', 600, 'Fernandez Guillen, Ernest'),
 (6, 'A', 'C.VALENCIANA', 150, 'Plaskett, H James'),
 (6, 'B', 'GENERAL', 700, 'Pajuelo Morales, Raul'),
@@ -516,7 +538,7 @@ CREATE TABLE `torneo` (
   `nom_torneo` enum('A','B') NOT NULL,
   `categoria` varchar(15) DEFAULT NULL,
   `fec_ini` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `torneo`
@@ -580,9 +602,8 @@ ALTER TABLE `jugador`
 -- Filtros para la tabla `premios`
 --
 ALTER TABLE `premios`
-  ADD CONSTRAINT `fk_premio_jugador` FOREIGN KEY (`nom_jugador`) REFERENCES `gen_clasifica` (`nom_jugador`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_premio_jugador` FOREIGN KEY (`nom_jugador`) REFERENCES `gen_clasifica` (`nom_jugador`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_premio_torneo` FOREIGN KEY (`nom_torneo`) REFERENCES `torneo` (`nom_torneo`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
