@@ -1,7 +1,7 @@
 import javax.xml.transform.Result;
 import java.sql.*;
 public class Ajedrez {
-    public static void main(String[] args) {
+public static void main(String[] args) {
         insertVal();
     }
     private static void insertVal(){
