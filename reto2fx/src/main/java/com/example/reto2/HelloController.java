@@ -66,22 +66,6 @@ public class HelloController {
     @FXML
     protected void boton1(ActionEvent event) throws IOException {
 
-       Stage stage = new Stage();
-
-        Parent root = FXMLLoader.load(getClass().getResource("menu_tablas.fxml"));
-        Scene scene = new Scene(root);
-        stage.getIcons().add(new Image("file:icon.png"));
-        stage.setTitle("Benidorm Chess Open");
-
-
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-
-        Node source = (Node) event.getSource();
-         stage = (Stage) source.getScene().getWindow();
-        stage.close();
-
 
     }
 

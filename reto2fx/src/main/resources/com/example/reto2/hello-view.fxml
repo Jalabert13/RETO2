@@ -26,7 +26,7 @@
           </Button>
       </children>
    </HBox>
-   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="404.0" text="Hecho por Juan, Juan Carlos Rabasco, Claudia, Adrián." textAlignment="RIGHT">
+   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="805.0" text="Hecho por Juan, Juan Carlos Rabasco, Claudia, Adrián." textAlignment="RIGHT">
       <font>
          <Font name="Roboto Light" size="16.0" />
       </font>

@@ -1,6 +1,8 @@
 package com.example.reto2;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.*;
@@ -14,13 +16,25 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class HelloApplication extends Application {
+public class MenuInicial extends Application {
 
+    private Button boton1;
     private TableView table = new TableView();
-    Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("menu_inicial.fxml"));
 
-    public HelloApplication() throws IOException {
+   /* private final ObservableList<jugadores> data =
+            FXCollections.observableArrayList(
+                    new jugadores("", "", "",,),
+                    new jugadores("", "", "",,),
+                    new jugadores("", "", "",,),
+                    new jugadores("", "", "",,),
+                    new jugadores("", "", "",,));*/
+
+    public MenuInicial() throws IOException {
+
     }
 
 
@@ -31,9 +45,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(root);
-
-        stage.getIcons().add(new Image("file:icon.png"));
-
+        stage.getIcons().add(new Image("file://icon.png"));
         stage.setTitle("Benidorm Chess Open");
 
 
@@ -43,11 +55,8 @@ public class HelloApplication extends Application {
     }
 
 
-    static Connection getConnexion() throws SQLException {
-        String url = "jdbc:mariadb://localhost/ajedrez?serverTimezone=UTC";
-        String user = "root";
-        String password = "";
-        return DriverManager.getConnection(url, user, password);
-    }
+
+
+
 }
 

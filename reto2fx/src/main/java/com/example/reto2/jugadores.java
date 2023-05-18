@@ -4,9 +4,6 @@ public class jugadores {
 
     String idfide,nom_jugador,club;
     int elo, huesped;
-    enum jug_torneo {
-        A, B
-    };
 
     public jugadores(String idfide, String nom_jugador, String club, int elo, int huesped) {
         this.idfide = idfide;
@@ -15,4 +12,10 @@ public class jugadores {
         this.elo = elo;
         this.huesped = huesped;
     }
+
+    enum jug_torneo {
+        A, B
+    };
+
+
 }
