@@ -1,11 +1,13 @@
-import javax.xml.transform.Result;
 import java.sql.*;
 public class Ajedrez {
 public static void main(String[] args) {
-        insertVal();
+        LoadChess.csvtorneos();
+        LoadChess.csvjugador();
+        LoadChess.csvclasif();
+        LoadChess.csvpremios();
     }
     private static void insertVal(){
-        try (Connection cnx = Con.getConnexion()) {
+        try (Connection cnx = Conx.getConnexion()) {
             Statement stm = cnx.createStatement();
             String query_a = "SELECT j.nom_jugador, j.club, g.puesto, j.jug_torneo FROM jugador j INNER JOIN gen_clasifica g ON j.nom_jugador=g.nom_jugador WHERE club LIKE '%Comunidad Valen%' AND j.jug_torneo = 'A' ORDER BY g.puesto ASC LIMIT 8";
             ResultSet rs_a = stm.executeQuery(query_a);
@@ -45,17 +47,13 @@ public static void main(String[] args) {
     }
 
     private static void insertbyElo(int elo){
-        try(Connection cnx = Con.getConnexion()){
 
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
     }
 
 
     //Insercion premios por clasificacion general, introduciendo por parametro el nombre del torneo
     private static void insertGen(String torneo){
-        try(Connection cnx = Con.getConnexion()){
+        try(Connection cnx = Conx.getConnexion()){
             PreparedStatement pstm = cnx.prepareStatement("SELECT nom_jugador FROM gen_clasifica WHERE jug_torneo = ? ORDER BY puesto ASC LIMIT 25");
             pstm.setString(1, torneo);
             ResultSet rs = pstm.executeQuery();

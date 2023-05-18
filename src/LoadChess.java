@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,7 +10,7 @@ import java.util.Scanner;
 public class LoadChess {
 
     public static void csvtorneos(){
-        try (Connection cnx = Con.getConnexion()){
+        try (Connection cnx = Conx.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./import_torneo.csv"));
             PreparedStatement pstm = cnx.prepareStatement("INSERT INTO torneo (nom_torneo, categoria, fec_ini) VALUES (?, ?, ?)");
             String line;
@@ -41,7 +40,7 @@ public class LoadChess {
     }
 
     public static void csvjugador(){
-        try (Connection cnx = Con.getConnexion()){
+        try (Connection cnx = Conx.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./import_jugador.csv"));
             PreparedStatement pstm = cnx.prepareStatement("INSERT INTO jugador (idfide, nom_jugador, elo, club, huesped, jug_torneo) VALUES (?, ?, ?, ?, ?, ?)");
             String line;
@@ -77,7 +76,7 @@ public class LoadChess {
     }
 
     public static void csvclasif(){
-        try (Connection cnx = Con.getConnexion()){
+        try (Connection cnx = Conx.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./import_genclasifica.csv"));
             PreparedStatement pstm = cnx.prepareStatement("INSERT INTO gen_clasifica (nom_jugador, puesto, jug_torneo) VALUES (?, ?, ?)");
             String line;
@@ -106,7 +105,7 @@ public class LoadChess {
     }
 
     public static void csvpremios(){
-        try (Connection cnx = Con.getConnexion()){
+        try (Connection cnx = Conx.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./import_premios.csv"));
             PreparedStatement pstm = cnx.prepareStatement("INSERT INTO premios (puesto_premio, nom_torneo, tipo, valor, nom_jugador) VALUES (?, ?, ?, ?, ?)");
             String line;
