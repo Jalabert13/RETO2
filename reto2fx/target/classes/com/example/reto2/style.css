@@ -1,11 +1,9 @@
 #principal_vbox {
-    -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
 }
 
-#sec_vbox {
-    -fx-background-image: url(img/melia.jpg) ;
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: 400px;
+AnchorPane {
+    -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
+
 }
 #principal_hbox {
     -fx-background-image: url(img/logo.png);
