@@ -25,13 +25,7 @@ public class VistaTablas extends Application {
     private TableView table = new TableView();
     Parent root = FXMLLoader.load(getClass().getResource("menu_tablas.fxml"));
 
-   /* private final ObservableList<jugadores> data =
-            FXCollections.observableArrayList(
-                    new jugadores("", "", "",,),
-                    new jugadores("", "", "",,),
-                    new jugadores("", "", "",,),
-                    new jugadores("", "", "",,),
-                    new jugadores("", "", "",,));*/
+
 
     public VistaTablas() throws IOException {
 

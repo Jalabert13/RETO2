@@ -15,7 +15,7 @@
                </image>
             </ImageView>
             <Button layoutX="16.0" layoutY="603.0" mnemonicParsing="false" onAction="#boton_inicio" prefHeight="66.0" prefWidth="94.0" text="Atras" textFill="WHITE" />
-            <Button alignment="CENTER" onAction="#boton_jugadores" contentDisplay="CENTER" layoutX="153.0" layoutY="498.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="116.0" text="Mostrar&#10;Jugadores&#10;" textAlignment="CENTER" textFill="WHITE" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="498.0" mnemonicParsing="false" onAction="#boton_jugadores" prefHeight="66.0" prefWidth="116.0" text="Mostrar&#10;Jugadores&#10;" textAlignment="CENTER" textFill="WHITE" />
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="192.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="116.0" text="OPEN A" textAlignment="CENTER" textFill="WHITE" />
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="349.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="116.0" text="OPEN B&#10;" textAlignment="CENTER" textFill="WHITE" />
          </children>

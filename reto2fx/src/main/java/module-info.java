@@ -7,6 +7,7 @@ module com.example.reto2 {
                     requires org.kordamp.bootstrapfx.core;
                 requires com.almasb.fxgl.all;
     requires java.sql;
+    requires java.desktop;
 
     opens com.example.reto2 to javafx.fxml;
     exports com.example.reto2;

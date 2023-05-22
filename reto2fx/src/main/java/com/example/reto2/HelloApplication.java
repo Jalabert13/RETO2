@@ -45,11 +45,5 @@ public class HelloApplication extends Application {
     }
 
 
-    static Connection getConnexion() throws SQLException {
-        String url = "jdbc:mariadb://localhost/ajedrez?serverTimezone=UTC";
-        String user = "root";
-        String password = "";
-        return DriverManager.getConnection(url, user, password);
-    }
 }
 
