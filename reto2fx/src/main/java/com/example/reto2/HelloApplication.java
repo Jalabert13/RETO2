@@ -15,13 +15,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
+
 public class HelloApplication extends Application {
 
     private TableView table = new TableView();
     Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
     public HelloApplication() throws IOException {
-
     }
 
 

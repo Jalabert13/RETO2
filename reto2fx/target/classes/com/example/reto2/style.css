@@ -1,24 +1,19 @@
 #principal_vbox {
-    -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
 }
 
-#sec_vbox {
-    -fx-background-image: url(img/melia.jpg) ;
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: 400px;
-
-
+AnchorPane {
+    -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
 
 }
 #principal_hbox {
     -fx-background-image: url(img/logo.png);
     -fx-background-repeat: no-repeat;
 }
-#boton_acceder, #boton2 ,#boton3 {
+Button {
     -fx-background-color: #383433;
 }
 
-#boton_acceder:hover, #boton2:hover, #boton3:hover {
+Button:hover {
     -fx-background-color: #6B6462;
 }
 

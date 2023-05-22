@@ -19,11 +19,11 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class VistaTablas extends Application {
+public class MenuInicial extends Application {
 
     private Button boton1;
     private TableView table = new TableView();
-    Parent root = FXMLLoader.load(getClass().getResource("menu_tablas.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("menu_inicial.fxml"));
 
    /* private final ObservableList<jugadores> data =
             FXCollections.observableArrayList(
@@ -33,7 +33,7 @@ public class VistaTablas extends Application {
                     new jugadores("", "", "",,),
                     new jugadores("", "", "",,));*/
 
-    public VistaTablas() throws IOException {
+    public MenuInicial() throws IOException {
 
     }
 
