@@ -100,6 +100,9 @@ ALTER TABLE `Premio`
 ALTER TABLE `cuadro_premios`
   ADD CONSTRAINT `fk_cuad_premio` FOREIGN KEY (`tipo_premio`) REFERENCES `Premio` (`tipo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE cuadro_premios
+  ADD CONSTRAINT fk_cuad_ganador FOREIGN KEY (ganador) REFERENCES gen_clasifica (nom_jugador) ON DELETE CASCADE ON UPDATE CASCADE;
+
 --
 -- Filtros para la tabla `gen_clasifica`
 --

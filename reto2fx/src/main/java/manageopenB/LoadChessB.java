@@ -82,7 +82,7 @@ public class LoadChessB {
 
     }
 
-    protected static void csvclasif(){
+    public static void csvclasif(){
         try (Connection cnx = Conx_B.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./clasB.csv"));
             PreparedStatement pstm = cnx.prepareStatement("INSERT INTO gen_clasifica (posicion, nom_jugador) VALUES (?, ?)");
@@ -110,7 +110,7 @@ public class LoadChessB {
 
     }
 
-    protected static void csvpremios(){
+    public static void csvpremios(){
         try (Connection cnx = Conx_B.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./premiosB.csv"));
             PreparedStatement pstm = cnx.prepareStatement("INSERT INTO Premio (tipo) VALUES (?)");

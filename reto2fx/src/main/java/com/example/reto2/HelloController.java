@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import manageopenB.LoadChessB;
 
 import java.io.IOException;
 import java.net.URL;
@@ -76,12 +77,9 @@ public class HelloController  {
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
-
-
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-
         Node source = (Node) event.getSource();
         stage = (Stage) source.getScene().getWindow();
         stage.close();
@@ -102,14 +100,11 @@ public class HelloController  {
 
     @FXML
     protected void boton_inicio(ActionEvent event) throws IOException {
-
         Stage stage = new Stage();
-
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
-
 
         stage.setScene(scene);
         stage.setResizable(false);
@@ -118,8 +113,6 @@ public class HelloController  {
         Node source = (Node) event.getSource();
         stage = (Stage) source.getScene().getWindow();
         stage.close();
-
-
     }
     @FXML
     protected void boton_jugadores(ActionEvent event) throws IOException {
