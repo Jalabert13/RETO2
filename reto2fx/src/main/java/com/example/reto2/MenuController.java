@@ -15,17 +15,15 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import manageopenB.LoadChessB;
+import manageopenA.Conx_A;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import static com.example.reto2.Con.getConnexion;
 
-
-public class HelloController  {
+public class MenuController  {
 
     @FXML
     private VBox principal_vbox;
@@ -88,7 +86,7 @@ public class HelloController  {
 
     @FXML
     protected void boton2(ActionEvent event) throws IOException, SQLException {
-        Statement stm = getConnexion().createStatement();
+        Statement stm = Conx_A.getConnexion().createStatement();
         ResultSet rs = stm.executeQuery("SELECT * from jugador");
         while (rs.next()) {
             for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
@@ -98,10 +96,11 @@ public class HelloController  {
         }
     }
 
+
     @FXML
-    protected void boton_inicio(ActionEvent event) throws IOException {
+    protected void boton_opena(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VistaOpenA.fxml"));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
@@ -114,16 +113,32 @@ public class HelloController  {
         stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
     @FXML
-    protected void boton_jugadores(ActionEvent event) throws IOException {
-
+    protected void boton_openb(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-
-        Parent root = FXMLLoader.load(getClass().getResource("menu_tablas.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(""));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
 
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+
+    @FXML
+    protected void boton_inicio(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("file:icon.png"));
+        stage.setTitle("Benidorm Chess Open");
 
         stage.setScene(scene);
         stage.setResizable(false);
