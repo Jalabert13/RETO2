@@ -71,7 +71,7 @@ public class MenuController  {
     protected void boton_menu(ActionEvent event) throws IOException {
         Stage stage = new Stage();
 
-        Parent root = FXMLLoader.load(getClass().getResource("menu_inicial.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/menu_inicial.fxml"));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
@@ -100,7 +100,7 @@ public class MenuController  {
     @FXML
     protected void boton_opena(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("VistaOpenA.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/VistaOpenA.fxml"));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
@@ -117,7 +117,7 @@ public class MenuController  {
     @FXML
     protected void boton_openb(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource(""));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/VistaOpenB.fxml"));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
@@ -130,12 +130,45 @@ public class MenuController  {
         stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
-
 
     @FXML
-    protected void boton_inicio(ActionEvent event) throws IOException {
+    protected void boton_atras(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
+        Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("file:icon.png"));
+        stage.setTitle("Benidorm Chess Open");
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+    /*
+    @FXML
+    protected void boton_atras(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/menu_inicial.fxml"));
+        Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("file:icon.png"));
+        stage.setTitle("Benidorm Chess Open");
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+*/
+    @FXML
+    protected void boton_juga(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/JugadoresA.fxml"));
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
         stage.setTitle("Benidorm Chess Open");
@@ -149,27 +182,42 @@ public class MenuController  {
         stage.close();
     }
 
-    void search_user() throws SQLException {
-        col_idfide.setCellValueFactory(new PropertyValueFactory<jugadores,String>("idfide"));
-        col_nom_jugador.setCellValueFactory(new PropertyValueFactory<jugadores,String>("nom_jugador"));
-        col_elo.setCellValueFactory(new PropertyValueFactory<jugadores,String>("elo"));
-        col_club.setCellValueFactory(new PropertyValueFactory<jugadores,String>("club"));
-        col_huesped.setCellValueFactory(new PropertyValueFactory<jugadores,String>("huesped"));
-        col_jug_torneo.setCellValueFactory(new PropertyValueFactory<jugadores,String>("jug_torneo"));
-}
+    @FXML
+    protected void boton_jugb(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/JugadoresB.fxml"));
+        Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("file:icon.png"));
+        stage.setTitle("Benidorm Chess Open");
 
-    ObservableList<jugadores> listaM;
-    int index = -1;
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
 
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
-
-    public void inicializar(URL url, ResourceBundle rb) {
-        col_idfide.setCellValueFactory(new PropertyValueFactory<jugadores,String>("idfide"));
-        col_idfide.setCellValueFactory(new PropertyValueFactory<jugadores,String>("idfide"));
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
+
+    @FXML
+    protected void boton_atras2(ActionEvent event) throws IOException {
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/VistaOpenA.fxml"));
+        Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("file:icon.png"));
+        stage.setTitle("Benidorm Chess Open");
+
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+
+
 
 
 }
