@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="AnchorJugB" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.SceneController">
+<AnchorPane fx:id="AnchorJugB" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
       <ImageView fitHeight="133.0" fitWidth="389.0" layoutX="351.0" layoutY="14.0">
          <image>
@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <Button layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#boton_openb" prefHeight="66.0" prefWidth="94.0" text="Atras" textFill="WHITE" />
-      <TableView fx:id="tablaJugB" layoutX="171.0" layoutY="217.0" prefHeight="400.0" prefWidth="750.0">
+      <TableView layoutX="171.0" layoutY="217.0" prefHeight="400.0" prefWidth="750.0">
         <columns>
           <TableColumn id="columna1_3" prefWidth="75.0" text="tipo_premio" />
           <TableColumn prefWidth="75.0" text="puesto" />
