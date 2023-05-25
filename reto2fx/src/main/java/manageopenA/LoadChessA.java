@@ -1,3 +1,5 @@
+package manageopenA;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,12 +9,11 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Scanner;
 
-public class LoadChess {
-
-    public static void csvtorneos(){
-        try (Connection cnx = Conx.getConnexion()){
-            BufferedReader read = new BufferedReader(new FileReader("./import_torneo.csv"));
-            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO torneo (nom_torneo, categoria, fec_ini) VALUES (?, ?, ?)");
+public class LoadChessA {
+    public static void csvtablon(){
+        try (Connection cnx = Conx_A.getConnexion()){
+            BufferedReader read = new BufferedReader(new FileReader("./tablonA.csv"));
+            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO cuadro_premios (tipo_premio, puesto, valor, ganador) VALUES (?, ?, ?, ?)");
             String line;
             String field;
             Scanner sc = null;
@@ -26,9 +27,15 @@ public class LoadChess {
                     pstm.setString(2, field);
                     field = sc.next();
                     pstm.setString(3, field);
-
+                    field = sc.next();
+                    if (!field.equalsIgnoreCase("DEFAULT")){
+                        pstm.setString(4, field);
+                    }else{
+                        pstm.setNull(4, Types.NULL);
+                    }
                 }
                 pstm.executeUpdate();
+                System.out.println(pstm);
             }
             pstm.close();
             read.close();
@@ -36,13 +43,13 @@ public class LoadChess {
         } catch (SQLException | IOException ex){
             throw new RuntimeException(ex);
         }
-        System.out.println("Torneos importados");
+
     }
 
     public static void csvjugador(){
-        try (Connection cnx = Conx.getConnexion()){
-            BufferedReader read = new BufferedReader(new FileReader("./import_jugador.csv"));
-            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO jugador (idfide, nom_jugador, elo, club, huesped, jug_torneo) VALUES (?, ?, ?, ?, ?, ?)");
+        try (Connection cnx = Conx_A.getConnexion()){
+            BufferedReader read = new BufferedReader(new FileReader("./jugadoresA.csv"));
+            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO jugador (nom_jugador, elo, idfide, club, huesped) VALUES (?, ?, ?, ?, ?)");
             String line;
             String field;
             Scanner sc = null;
@@ -60,11 +67,9 @@ public class LoadChess {
                     pstm.setString(4, field);
                     field = sc.next();
                     pstm.setString(5, field);
-                    field = sc.next();
-                    pstm.setString(6, field);
-
                 }
                 pstm.executeUpdate();
+                System.out.println(pstm);
             }
             pstm.close();
             read.close();
@@ -72,13 +77,13 @@ public class LoadChess {
         } catch (SQLException | IOException ex){
             throw new RuntimeException(ex);
         }
-        System.out.println("Jugadores insertados");
+
     }
 
     public static void csvclasif(){
-        try (Connection cnx = Conx.getConnexion()){
-            BufferedReader read = new BufferedReader(new FileReader("./import_genclasifica.csv"));
-            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO gen_clasifica (nom_jugador, puesto, jug_torneo) VALUES (?, ?, ?)");
+        try (Connection cnx = Conx_A.getConnexion()){
+            BufferedReader read = new BufferedReader(new FileReader("./clasA.csv"));
+            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO gen_clasifica (posicion, nom_jugador) VALUES (?, ?)");
             String line;
             String field;
             Scanner sc = null;
@@ -90,10 +95,9 @@ public class LoadChess {
                     pstm.setString(1, field);
                     field = sc.next();
                     pstm.setString(2, field);
-                    field = sc.next();
-                    pstm.setString(3, field);
                 }
                 pstm.executeUpdate();
+                System.out.println(pstm);
             }
             pstm.close();
             read.close();
@@ -101,46 +105,34 @@ public class LoadChess {
         } catch (SQLException | IOException ex){
             throw new RuntimeException(ex);
         }
-        System.out.println("Clasificacion general importada");
+
     }
 
     public static void csvpremios(){
-        try (Connection cnx = Conx.getConnexion()){
-            BufferedReader read = new BufferedReader(new FileReader("./import_premios.csv"));
-            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO premios (puesto_premio, nom_torneo, tipo, valor, nom_jugador) VALUES (?, ?, ?, ?, ?)");
+        try (Connection cnx = Conx_A.getConnexion()){
+            BufferedReader read = new BufferedReader(new FileReader("./premiosA.csv"));
+            PreparedStatement pstm = cnx.prepareStatement("INSERT INTO Premio (tipo) VALUES (?)");
             String line;
             String field;
             Scanner sc = null;
             while ((line = read.readLine()) != null){
                 sc = new Scanner(line);
-                sc.useDelimiter("\\|");
                 while (sc.hasNext()){
                     field = sc.next();
                     pstm.setString(1, field);
-                    field = sc.next();
-                    pstm.setString(2, field);
-                    field = sc.next();
-                    pstm.setString(3, field);
-                    field = sc.next();
-                    pstm.setString(4, field);
-                    field = sc.next();
-                    if (!field.equalsIgnoreCase("NULL")){
-                        pstm.setString(5, field);
-                    }else{
-                        pstm.setNull(5, Types.NULL);
-                    }
                 }
                 pstm.executeUpdate();
+                System.out.println(pstm);
             }
             pstm.close();
             read.close();
-
         } catch (SQLException | IOException ex){
             throw new RuntimeException(ex);
         }
-        System.out.println("Premios importados");
-    }
-    public static void main(String[] args) {
 
     }
+
+
+
+
 }

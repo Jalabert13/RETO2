@@ -2,25 +2,19 @@ package com.example.reto2;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 
 
 public class HelloApplication extends Application {
 
     private TableView table = new TableView();
-    Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
 
     public HelloApplication() throws IOException {
     }

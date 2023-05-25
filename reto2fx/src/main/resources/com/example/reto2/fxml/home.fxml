@@ -9,11 +9,11 @@
 
 
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="731.0" prefWidth="1114.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="731.0" prefWidth="1114.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.MenuController">
    <children>
       <ImageView fitHeight="372.0" fitWidth="344.0" layoutX="14.0" layoutY="190.0">
          <image>
-            <Image url="@img/melia.jpg" />
+            <Image url="@../img/melia.jpg" />
          </image>
       </ImageView>
       <Button fx:id="boton_acceder" alignment="CENTER" contentDisplay="BOTTOM" layoutX="498.0" layoutY="593.0" onAction="#boton_menu" prefHeight="80.0" prefWidth="118.0" text="Acceder!" textFill="WHITE">
@@ -28,11 +28,11 @@
       </Label>
       <ImageView fitHeight="148.0" fitWidth="429.0" layoutX="332.0" layoutY="14.0">
          <image>
-            <Image url="@img/logo.png" />
+            <Image url="@../img/logo.png" />
          </image>
       </ImageView>
    </children>
    <stylesheets>
-      <URL value="@style.css" />
+      <URL value="@../css/style.css" />
    </stylesheets>
 </AnchorPane>
