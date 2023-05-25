@@ -21,8 +21,8 @@ AnchorPane {
     -fx-background-color: linear-gradient(to bottom, #fff, #A7A7A7);
 }
 
-#columna1_3 {
-    -fx-background-color: #858585;
+#oddcolumna {
+    -fx-background-color: #6e6e6e;
 }
 TableColumn {
     -fx-border-style: solid;

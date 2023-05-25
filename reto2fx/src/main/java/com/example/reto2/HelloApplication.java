@@ -9,16 +9,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
-
 public class HelloApplication extends Application {
 
-    private TableView table = new TableView();
     Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
 
     public HelloApplication() throws IOException {
     }
-
 
     public static void main(String[] args) {
         launch(args);

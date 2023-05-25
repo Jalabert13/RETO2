@@ -18,10 +18,10 @@
       <Button layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#boton_opena" prefHeight="66.0" prefWidth="94.0" text="Atras" textFill="WHITE" />
       <TableView fx:id="tablaJugA" layoutX="171.0" layoutY="217.0" prefHeight="400.0" prefWidth="750.0">
         <columns>
-            <TableColumn id="columna1_3" prefWidth="75.0" text="idfide" />
-            <TableColumn id="columna2_4" prefWidth="75.0" text="nom_jugador" />
-            <TableColumn id="columna1_3" prefWidth="195.0" text="elo" />
-            <TableColumn id="columna2_4" prefWidth="190.0" text="club" />
+            <TableColumn id="oddcolumna" fx:id="idfide" prefWidth="75.0" text="idfide" />
+            <TableColumn  prefWidth="75.0" fx:id="nom_jugador" text="nom_jugador" />
+            <TableColumn id="oddcolumna" fx:id="elo" prefWidth="195.0" text="elo" />
+            <TableColumn  prefWidth="190.0" fx:id="club" text="club" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
