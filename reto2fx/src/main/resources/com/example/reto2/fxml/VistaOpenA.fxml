@@ -16,14 +16,14 @@
                </image>
             </ImageView>
             <Button layoutX="16.0" layoutY="603.0" mnemonicParsing="false" onAction="#boton_menu" prefHeight="66.0" prefWidth="94.0" text="Atras" textFill="WHITE" />
-            <Button onAction="#boton_juga" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="158.0" mnemonicParsing="false"  prefHeight="93.0" prefWidth="143.0" text="JUGADORES" textAlignment="CENTER" textFill="WHITE" />
-            <Button onAction="#boton_prema" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="313.0" mnemonicParsing="false"  prefHeight="93.0" prefWidth="143.0" text="PREMIOS&#10;" textAlignment="CENTER" textFill="WHITE" />
-            <Button onAction="#boton_opta" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="475.0" mnemonicParsing="false"  prefHeight="93.0" prefWidth="143.0" text="OPCIONES&#10;&#10;" textAlignment="CENTER" textFill="WHITE" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="158.0" mnemonicParsing="false" onAction="#boton_juga" prefHeight="93.0" prefWidth="143.0" text="JUGADORES" textAlignment="CENTER" textFill="WHITE" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="313.0" mnemonicParsing="false" onAction="#boton_prema" prefHeight="93.0" prefWidth="143.0" text="PREMIOS&#10;" textAlignment="CENTER" textFill="WHITE" />
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="475.0" mnemonicParsing="false" onAction="#boton_opta" prefHeight="93.0" prefWidth="143.0" text="OPCIONES&#10;&#10;" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="697.0" fitWidth="675.0" layoutX="416.0">
+      <ImageView fitHeight="517.0" fitWidth="684.0" layoutX="393.0" layoutY="90.0">
          <image>
-            <Image url="@../img/wave.gif" />
+            <Image url="@../img/bg2_a.jpeg" />
          </image>
       </ImageView>
    </children>
