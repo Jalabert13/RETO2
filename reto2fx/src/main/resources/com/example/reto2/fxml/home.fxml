@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,13 +8,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<?import java.net.URL?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="731.0" prefWidth="1114.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
-      <ImageView fitHeight="372.0" fitWidth="344.0" layoutX="14.0" layoutY="190.0">
+      <ImageView fitHeight="743.0" fitWidth="1121.0">
          <image>
-            <Image url="@../img/melia.jpg" />
+            <Image url="@../img/night.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="372.0" fitWidth="600.0" layoutX="247.0" layoutY="180.0">
+         <image>
+            <Image url="@../img/bg1.png" />
          </image>
       </ImageView>
       <Button fx:id="boton_acceder" alignment="CENTER" contentDisplay="BOTTOM" layoutX="498.0" layoutY="593.0" onAction="#boton_menu" prefHeight="80.0" prefWidth="118.0" text="Acceder!" textFill="WHITE">
@@ -21,7 +25,7 @@
             <Font name="Roboto Light" size="14.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="683.0" prefHeight="17.0" prefWidth="805.0" text="Hecho por Juan, Juan Carlos Rabasco, Claudia, Adrián." textAlignment="RIGHT">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="144.0" layoutY="683.0" prefHeight="17.0" prefWidth="805.0" text="Hecho por Juan, Juan Carlos Rabasco, Claudia, Adrián." textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="Roboto Light" size="16.0" />
          </font>
