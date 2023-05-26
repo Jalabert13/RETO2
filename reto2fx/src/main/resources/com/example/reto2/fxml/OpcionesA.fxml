@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="AnchorJugA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
+<AnchorPane id="AnchorJugA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
-      <ImageView fitHeight="133.0" fitWidth="389.0" layoutX="351.0" layoutY="14.0">
-         <image>
-            <Image url="@../img/logo.png" />
-         </image>
-      </ImageView>
+      <Button layoutX="958.0" layoutY="387.0" mnemonicParsing="false" prefHeight="43.0" onAction="#cargarOptA" prefWidth="106.0" text="Cargar" textFill="WHITE" />
+       <ImageView fitHeight="133.0" fitWidth="389.0" layoutX="351.0" layoutY="14.0">
+           <Image url="@../img/logo.png"/>
+       </ImageView>
       <Button layoutX="14.0" layoutY="617.0" mnemonicParsing="false" onAction="#boton_opena" prefHeight="66.0" prefWidth="94.0" text="Atras" textFill="WHITE" />
-      <TableView layoutX="171.0" layoutY="217.0" prefHeight="400.0" prefWidth="750.0">
+      <TableView fx:id="tablaOpc" layoutX="171.0" layoutY="217.0" prefHeight="400.0" prefWidth="750.0">
         <columns>
-          <TableColumn id="columna1_3" prefWidth="75.0" text="idfide" />
-          <TableColumn prefWidth="75.0" text="nom_jugador" />
-            <TableColumn id="columna1_3" prefWidth="195.0" text="tipo_premio" />
+            <TableColumn id="oddcolumna" fx:id="opc_idfide" prefWidth="75.0" text="idfide" />
+            <TableColumn fx:id="opc_nomjugador" prefWidth="75.0" text="jugador" />
+            <TableColumn id="oddcolumna" fx:id="opc_premio" prefWidth="195.0" text="tipo de premio" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

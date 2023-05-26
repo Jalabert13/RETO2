@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -22,6 +24,7 @@ import java.sql.SQLException;
 
 
 public class Controller{
+
     protected void switchScene(ActionEvent event, Stage stage, Parent root) {
         Scene scene = new Scene(root);
         stage.getIcons().add(new Image("file:icon.png"));
@@ -66,14 +69,14 @@ public class Controller{
         switchScene(event, stage, root);
     }
     @FXML
-    protected void boton_juga(ActionEvent event) throws IOException {
+    protected void boton_juga(ActionEvent event) throws IOException{
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("fxml/JugadoresA.fxml"));
         switchScene(event, stage, root);
     }
 
     @FXML
-    protected void boton_jugb(ActionEvent event) throws IOException {
+    protected void boton_jugb(ActionEvent event) throws IOException{
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("fxml/JugadoresB.fxml"));
         switchScene(event, stage, root);
@@ -94,14 +97,14 @@ public class Controller{
     }
 
     @FXML
-    protected void boton_opta(ActionEvent event) throws IOException {
+    protected void boton_optA(ActionEvent event) throws IOException{
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("fxml/OpcionesA.fxml"));
         switchScene(event, stage, root);
     }
 
     @FXML
-    protected void boton_optb(ActionEvent event) throws IOException {
+    protected void boton_optB(ActionEvent event) throws IOException{
         Stage stage = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("fxml/OpcionesB.fxml"));
         switchScene(event, stage, root);
@@ -109,9 +112,9 @@ public class Controller{
 
 
     // --- Cargar y visualizar datos
-    
-    
 
+
+    //Jugadores
     @FXML
     private TableView<GlobalJugador> tablaJug;
     @FXML
@@ -122,10 +125,8 @@ public class Controller{
     private TableColumn<GlobalJugador, Integer> elo;
     @FXML
     private TableColumn<GlobalJugador, String> club;
-    
-    
 
-    private void init_tablas(){
+    private void initTabJugadores(){
         idfide.setCellValueFactory(new PropertyValueFactory<>("idfide"));
         nom_jugador.setCellValueFactory(new PropertyValueFactory<>("nom_jugador"));
         elo.setCellValueFactory(new PropertyValueFactory<>("elo"));
@@ -134,28 +135,71 @@ public class Controller{
     
     
     private static ObservableList<GlobalJugador> fetchJugadores(Connection cnx){
-        ObservableList<GlobalJugador> jA = FXCollections.observableArrayList();
+        ObservableList<GlobalJugador> juglist = FXCollections.observableArrayList();
         try(cnx){
             ResultSet rs = cnx.createStatement().executeQuery("SELECT idfide, nom_jugador, elo, club FROM jugador");
             while (rs.next()){
-                jA.add(new GlobalJugador(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
+                juglist.add(new GlobalJugador(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
             }
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
-        return jA;
+        return juglist;
     }
     
     @FXML
     protected void cargar_A(ActionEvent event) throws SQLException {
-        init_tablas();
+        initTabJugadores();
         tablaJug.setItems(fetchJugadores(Conx_A.getConnexion()));
     }
 
     @FXML
     protected void cargar_B(ActionEvent event) throws SQLException {
-        init_tablas();
+        initTabJugadores();
         tablaJug.setItems(fetchJugadores(Conx_B.getConnexion()));
+    }
+
+
+
+    //Opciones
+    @FXML
+    private TableView<Opciones> tablaOpc;
+    @FXML
+    private TableColumn<Opciones, String> opc_idfide;
+    @FXML
+    private TableColumn<Opciones, String> opc_nomjugador;
+    @FXML
+    private TableColumn<Opciones, String> opc_premio;
+
+    private void initTabOpta(){
+        opc_idfide.setCellValueFactory(new PropertyValueFactory<>("idfide"));
+        opc_nomjugador.setCellValueFactory(new PropertyValueFactory<>("nom_jugador"));
+        opc_premio.setCellValueFactory(new PropertyValueFactory<>("tipo_premio"));
+    }
+
+    private static ObservableList<Opciones> fetchOptar(Connection cnx){
+        ObservableList<Opciones> opts = FXCollections.observableArrayList();
+        try(cnx){
+            ResultSet rs = cnx.createStatement().executeQuery("SELECT * FROM optar");
+            while (rs.next()){
+                opts.add(new Opciones(rs.getString(1), rs.getString(2), rs.getString(3)));
+            }
+        }catch (SQLException ex){
+            throw new RuntimeException(ex);
+        }
+        return opts;
+    }
+
+    @FXML
+    protected void cargarOptA(ActionEvent event) throws SQLException {
+        initTabOpta();
+        tablaOpc.setItems(fetchOptar(Conx_A.getConnexion()));
+    }
+
+    @FXML
+    protected void cargarOptB(ActionEvent event) throws SQLException {
+        initTabOpta();
+        tablaOpc.setItems(fetchOptar(Conx_B.getConnexion()));
     }
 
 

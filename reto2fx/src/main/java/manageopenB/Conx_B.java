@@ -8,7 +8,7 @@ public class Conx_B {
     public static Connection getConnexion() throws SQLException {
         String url = "jdbc:mariadb://localhost:3306/Ajedrez_B";
         String user = "root";
-        String password = "";
+        String password = "root";
         return DriverManager.getConnection(url, user, password);
     }
 }

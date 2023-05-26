@@ -1,10 +1,6 @@
 #principal_vbox {
 }
 
-AnchorPane {
-    -fx-background-color: linear-gradient(to bottom, #fff, #00FFFF);
-}
-
 #AnchorJugA {
     -fx-background-color: linear-gradient(to bottom, #fff, #004DFF);
 }
