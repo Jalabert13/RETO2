@@ -161,7 +161,7 @@ public class Controller{
 
 
 
-    //Opciones
+    //Optar
     @FXML
     private TableView<Opciones> tablaOpc;
     @FXML
@@ -178,16 +178,16 @@ public class Controller{
     }
 
     private static ObservableList<Opciones> fetchOptar(Connection cnx){
-        ObservableList<Opciones> opts = FXCollections.observableArrayList();
+        ObservableList<Opciones> li_opc = FXCollections.observableArrayList();
         try(cnx){
             ResultSet rs = cnx.createStatement().executeQuery("SELECT * FROM optar");
             while (rs.next()){
-                opts.add(new Opciones(rs.getString(1), rs.getString(2), rs.getString(3)));
+                li_opc.add(new Opciones(rs.getString(1), rs.getString(2), rs.getString(3)));
             }
         }catch (SQLException ex){
             throw new RuntimeException(ex);
         }
-        return opts;
+        return li_opc;
     }
 
     @FXML
@@ -202,5 +202,48 @@ public class Controller{
         tablaOpc.setItems(fetchOptar(Conx_B.getConnexion()));
     }
 
+    //Cuadro premios
+    @FXML
+    private TableView<CuadroPremios> tablaPre;
+    @FXML
+    private TableColumn<CuadroPremios, String> prem_tipo;
+    @FXML
+    private TableColumn<CuadroPremios, Integer> prem_puesto;
+    @FXML
+    private TableColumn<CuadroPremios, Integer> prem_valor;
+    @FXML
+    private TableColumn<CuadroPremios, String> prem_ganador;
 
+    private void initCuadro(){
+        prem_tipo.setCellValueFactory(new PropertyValueFactory<>("tipo_premio"));
+        prem_puesto.setCellValueFactory(new PropertyValueFactory<>("puesto"));
+        prem_valor.setCellValueFactory(new PropertyValueFactory<>("valor"));
+        prem_ganador.setCellValueFactory(new PropertyValueFactory<>("ganador"));
+    }
+
+    public static ObservableList<CuadroPremios> fetchCuadro(Connection cnx){
+        ObservableList<CuadroPremios> li_cuadro = FXCollections.observableArrayList();
+        try(cnx){
+            ResultSet rs = cnx.createStatement().executeQuery("SELECT * FROM cuadro_premios");
+            while (rs.next()){
+                li_cuadro.add(new CuadroPremios(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4)));
+            }
+        }catch (SQLException ex){
+            throw new RuntimeException(ex);
+        }
+        return li_cuadro;
+    }
+
+    @FXML
+    public void cargarCuadA(ActionEvent actionEvent) throws SQLException {
+        initCuadro();
+        tablaPre.setItems(fetchCuadro(Conx_A.getConnexion()));
+
+    }
+
+    @FXML
+    public void cargarCuadB(ActionEvent actionEvent) throws SQLException {
+        initCuadro();
+        tablaPre.setItems(fetchCuadro(Conx_B.getConnexion()));
+    }
 }
