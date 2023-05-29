@@ -3,17 +3,15 @@ package com.example.reto2;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
-
+public class MainApplication extends Application {
     Parent root = FXMLLoader.load(getClass().getResource("fxml/home.fxml"));
 
-    public HelloApplication() throws IOException {
+    public MainApplication() throws IOException {
     }
 
     public static void main(String[] args) {

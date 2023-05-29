@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
@@ -110,8 +111,21 @@ public class Controller{
         switchScene(event, stage, root);
     }
 
+    public void importData(ActionEvent event) throws IOException {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/DataPopUp.fxml"));
+        Scene dialog_scene = new Scene(root);
+        dialog.setScene(dialog_scene);
+        dialog.show();
+        if (ImportData.importAllCsv()){
+            dialog.show();
+        }
+    }
 
-    // --- Cargar y visualizar datos
+
+    // --- Cargar y visualizar datos en tablas de la interfaz
 
 
     //Jugadores
@@ -246,4 +260,6 @@ public class Controller{
         initCuadro();
         tablaPre.setItems(fetchCuadro(Conx_B.getConnexion()));
     }
+
+
 }

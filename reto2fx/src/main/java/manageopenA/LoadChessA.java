@@ -8,8 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Scanner;
-
 public class LoadChessA {
+
     public static void csvtablon(){
         try (Connection cnx = Conx_A.getConnexion()){
             BufferedReader read = new BufferedReader(new FileReader("./tablonA.csv"));
