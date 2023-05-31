@@ -1,11 +1,12 @@
 package manageopenA;
-import manageopenB.LoadChessB;
+
 import manageopenB.MainChessB;
 
 import java.sql.*;
 
 public class MainChessA {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        MainChessB.insertGanadores();
     }
 
     public static void insertOptar() {
@@ -61,9 +62,9 @@ public class MainChessA {
         }
     }
 
-    // ORDER BY valor DESC, c.tipo_premio ASC;
-    public static void globalSetGanadores(Connection cnx, String nombre) throws SQLException {
-        PreparedStatement pstm = cnx.prepareStatement("SELECT c.tipo_premio, valor, puesto, ganador FROM cuadro_premios c INNER JOIN optar ON c.tipo_premio=optar.tipo_premio WHERE optar.nom_jugador = ? AND ganador IS NULL ORDER BY valor DESC LIMIT 1");
+    // Unico metodo que tambien se llama en la clase MainChssB para calcular el tablon de premios, ya que el proceso es exactamente el mismo
+    public static void globalUpdateGanador(Connection cnx, String nombre) throws SQLException {
+        PreparedStatement pstm = cnx.prepareStatement("SELECT c.tipo_premio, valor, puesto, ganador FROM cuadro_premios c INNER JOIN optar ON c.tipo_premio=optar.tipo_premio WHERE optar.nom_jugador = ? AND ganador IS NULL ORDER BY valor DESC, c.tipo_premio ASC LIMIT 1");
         pstm.setString(1, nombre);
         ResultSet rsopt = pstm.executeQuery();
         while (rsopt.next()){
@@ -76,13 +77,13 @@ public class MainChessA {
             System.out.println(pstm_up);
         }
     }
-    public static void insertCuadro(){
+    public static void insertGanadores(){
         try(Connection cnx = Conx_A.getConnexion()){
             Statement stm = cnx.createStatement();
             ResultSet rs = stm.executeQuery("SELECT nom_jugador FROM gen_clasifica ORDER BY posicion ASC");
             while (rs.next()){
                 String nombre = rs.getString(1);
-                globalSetGanadores(cnx, nombre);
+                globalUpdateGanador(cnx, nombre);
             }
         }catch (SQLException ex){
             throw new RuntimeException(ex);

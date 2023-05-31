@@ -9,13 +9,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TableColumn;
 import manageopenA.Conx_A;
 import manageopenA.MainChessA;
 import manageopenB.Conx_B;
@@ -122,11 +120,11 @@ public class Controller{
         Parent root = FXMLLoader.load(getClass().getResource("fxml/DataPopUp.fxml"));
         Scene dialog_scene = new Scene(root);
         dialog.setScene(dialog_scene);
-        dialog.show();
         if (ImportData.importAllCsv()){
             dialog.show();
         }
     }
+
 
 
     // --- Cargar y visualizar datos en tablas de la interfaz
@@ -328,6 +326,33 @@ public class Controller{
         initCuadro();
         tablaPre.setItems(fetchCuadro(Conx_B.getConnexion()));
     }
+
+
+
+    //Dialogo para actualizar jugador
+
+    @FXML
+    private TextField inputNomJug;
+    @FXML
+    private ChoiceBox choiceAtributo;
+
+
+    public void updateBtn(ActionEvent event) throws IOException{
+        final Stage update_dialog = new Stage();
+        update_dialog.initModality(Modality.APPLICATION_MODAL);
+        update_dialog.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/UpdateJugador.fxml"));
+        Scene dialog_scene = new Scene(root);
+        update_dialog.setScene(dialog_scene);
+        update_dialog.show();
+    }
+
+    public void applyUpdate(ActionEvent event) throws IOException{
+        String nomjug = inputNomJug.getText();
+        String field = (String) choiceAtributo.getValue();
+
+    }
+
 
 
 }

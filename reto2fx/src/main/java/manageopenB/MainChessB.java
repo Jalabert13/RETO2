@@ -1,7 +1,5 @@
 package manageopenB;
 
-import manageopenA.Conx_A;
-import manageopenA.LoadChessA;
 import manageopenA.MainChessA;
 
 import java.sql.*;
@@ -67,13 +65,13 @@ public class MainChessB {
         }
     }
 
-    public static void insertCuadro(){
+    public static void insertGanadores(){
         try(Connection cnx = Conx_B.getConnexion()){
             Statement stm = cnx.createStatement();
             ResultSet rs = stm.executeQuery("SELECT nom_jugador FROM gen_clasifica ORDER BY posicion ASC");
             while (rs.next()){
                 String nombre = rs.getString(1);
-                MainChessA.globalSetGanadores(cnx, nombre); //Se llama al metodo del main A para actualizar los ganadores ya que el proceso es exactamente el mismo
+                MainChessA.globalUpdateGanador(cnx, nombre); //Se llama al metodo del main A para actualizar los ganadores ya que el proceso es exactamente el mismo
             }
         }catch (SQLException ex){
             throw new RuntimeException(ex);
