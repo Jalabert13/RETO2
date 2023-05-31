@@ -9,14 +9,10 @@ public class ImportData {
     public static boolean importAllCsv(){
         try {
             LoadChessA.csvjugador();
-            LoadChessA.csvpremios();
-            LoadChessA.csvtablon();
-            MainChessA.insertOptar();
-
             LoadChessB.csvjugador();
+
+            LoadChessA.csvpremios();
             LoadChessB.csvpremios();
-            LoadChessB.csvtablon();
-            MainChessB.insertOptar();
         }catch (RuntimeException ex){
             return false;
         }

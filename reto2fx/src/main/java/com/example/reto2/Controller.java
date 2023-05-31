@@ -1,14 +1,15 @@
 package com.example.reto2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
@@ -16,7 +17,9 @@ import javafx.stage.Stage;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import manageopenA.Conx_A;
+import manageopenA.MainChessA;
 import manageopenB.Conx_B;
+import manageopenB.MainChessB;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -111,6 +114,7 @@ public class Controller{
         switchScene(event, stage, root);
     }
 
+    @FXML
     public void importData(ActionEvent event) throws IOException {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
@@ -139,6 +143,8 @@ public class Controller{
     private TableColumn<GlobalJugador, Integer> elo;
     @FXML
     private TableColumn<GlobalJugador, String> club;
+    @FXML
+    private TextField findJug;
 
     private void initTabJugadores(){
         idfide.setCellValueFactory(new PropertyValueFactory<>("idfide"));
@@ -162,15 +168,69 @@ public class Controller{
     }
     
     @FXML
-    protected void cargar_A(ActionEvent event) throws SQLException {
+    protected void cargarJugA(ActionEvent event) throws SQLException {
+        ObservableList<GlobalJugador> juglist = fetchJugadores(Conx_A.getConnexion());
         initTabJugadores();
-        tablaJug.setItems(fetchJugadores(Conx_A.getConnexion()));
+        tablaJug.setItems(juglist);
+
+        //Codigo para filtrar mediante textfield
+        FilteredList<GlobalJugador> filterJuglist = new FilteredList<>(juglist, b -> true);
+        findJug.textProperty().addListener((observable, oldValue, newValue) ->{
+            filterJuglist.setPredicate((GlobalJugador) -> {
+                if (newValue.isEmpty() || newValue.isBlank()){
+                    return true;
+                }
+
+                String keyword = newValue.toLowerCase();
+
+                if (GlobalJugador.getIdfide().toLowerCase().contains(keyword)){
+                    return true;
+                }else if (GlobalJugador.getNom_jugador().toLowerCase().contains(keyword)){
+                    return true;
+                }else if (Integer.toString(GlobalJugador.getElo()).toLowerCase().contains(keyword)){
+                    return true;
+                }else return GlobalJugador.getClub().toLowerCase().contains(keyword);
+
+            });
+        });
+
+        SortedList<GlobalJugador> sortedJug = new SortedList<>(filterJuglist);
+        sortedJug.comparatorProperty().bind(tablaJug.comparatorProperty());
+        tablaJug.setItems(sortedJug);
     }
 
+
+
     @FXML
-    protected void cargar_B(ActionEvent event) throws SQLException {
+    protected void cargarJugB(ActionEvent event) throws SQLException {
+        ObservableList<GlobalJugador> juglist = fetchJugadores(Conx_B.getConnexion());
         initTabJugadores();
-        tablaJug.setItems(fetchJugadores(Conx_B.getConnexion()));
+        tablaJug.setItems(juglist);
+
+        //Codigo para filtrar mediante textfield
+        FilteredList<GlobalJugador> filterJuglist = new FilteredList<>(juglist, b -> true);
+        findJug.textProperty().addListener((observable, oldValue, newValue) ->{
+            filterJuglist.setPredicate((GlobalJugador) -> {
+                if (newValue.isEmpty() || newValue.isBlank()){
+                    return true;
+                }
+
+                String keyword = newValue.toLowerCase();
+
+                if (GlobalJugador.getIdfide().toLowerCase().contains(keyword)){
+                    return true;
+                }else if (GlobalJugador.getNom_jugador().toLowerCase().contains(keyword)){
+                    return true;
+                }else if (Integer.toString(GlobalJugador.getElo()).toLowerCase().contains(keyword)){
+                    return true;
+                }else return GlobalJugador.getClub().toLowerCase().contains(keyword);
+
+            });
+        });
+
+        SortedList<GlobalJugador> sortedJug = new SortedList<>(filterJuglist);
+        sortedJug.comparatorProperty().bind(tablaJug.comparatorProperty());
+        tablaJug.setItems(sortedJug);
     }
 
 
@@ -204,16 +264,24 @@ public class Controller{
         return li_opc;
     }
 
+
+    //Para cargar a lo que las tablas "opta", se hace truncate tanto al principio como al final de la funcion para que cada vez que se carguen los datos, se recalcule la tabla por si se hace algun cambio en los jugadoes"
     @FXML
     protected void cargarOptA(ActionEvent event) throws SQLException {
+        MainChessA.truncateOptar();
         initTabOpta();
+        MainChessA.insertOptar();
         tablaOpc.setItems(fetchOptar(Conx_A.getConnexion()));
+        MainChessA.truncateOptar();
     }
 
     @FXML
     protected void cargarOptB(ActionEvent event) throws SQLException {
+        MainChessB.truncateOptar();
         initTabOpta();
+        MainChessB.insertOptar();
         tablaOpc.setItems(fetchOptar(Conx_B.getConnexion()));
+        MainChessB.truncateOptar();
     }
 
     //Cuadro premios

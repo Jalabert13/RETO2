@@ -61,6 +61,12 @@ public class MainChessB {
         }
     }
 
+    public static void truncateOptar() throws SQLException {
+        try(Connection cnx = Conx_B.getConnexion()){
+            cnx.createStatement().executeUpdate("TRUNCATE TABLE optar");
+        }
+    }
+
     public static void insertCuadro(){
         try(Connection cnx = Conx_B.getConnexion()){
             Statement stm = cnx.createStatement();
