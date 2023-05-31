@@ -1,4 +1,5 @@
-#principal_vbox {
+Button {
+    -fx-background-color: #383433;
 }
 
 #AnchorJugA {
@@ -26,13 +27,18 @@ TableColumn {
     -fx-border-width: 1pt;
 }
 
+#updateBtn{
+    -fx-background-image: url(../img/pencil.png);
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain;
+}
+
 #principal_hbox {
     -fx-background-image: url(../img/logo.png);
     -fx-background-repeat: no-repeat;
 }
-Button {
-    -fx-background-color: #383433;
-}
+
 
 Button:hover {
     -fx-background-color: #6B6462;

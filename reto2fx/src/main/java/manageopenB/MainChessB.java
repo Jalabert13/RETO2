@@ -1,12 +1,12 @@
 package manageopenB;
 
+import manageopenA.LoadChessA;
 import manageopenA.MainChessA;
 
 import java.sql.*;
 
 public class MainChessB {
     public static void main(String[] args) {
-
     }
     public static void insertOptar() {
         try(Connection cnx = Conx_B.getConnexion()){
@@ -59,13 +59,8 @@ public class MainChessB {
         }
     }
 
-    public static void truncateOptar() throws SQLException {
-        try(Connection cnx = Conx_B.getConnexion()){
-            cnx.createStatement().executeUpdate("TRUNCATE TABLE optar");
-        }
-    }
 
-    public static void insertGanadores(){
+    public static void insertCuadro(){
         try(Connection cnx = Conx_B.getConnexion()){
             Statement stm = cnx.createStatement();
             ResultSet rs = stm.executeQuery("SELECT nom_jugador FROM gen_clasifica ORDER BY posicion ASC");
@@ -77,8 +72,6 @@ public class MainChessB {
             throw new RuntimeException(ex);
         }
     }
-
-
 
 
 }

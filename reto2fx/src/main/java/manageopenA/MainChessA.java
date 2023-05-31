@@ -1,12 +1,12 @@
 package manageopenA;
 
+import manageopenB.Conx_B;
 import manageopenB.MainChessB;
 
 import java.sql.*;
 
 public class MainChessA {
     public static void main(String[] args){
-        MainChessB.insertGanadores();
     }
 
     public static void insertOptar() {
@@ -56,11 +56,7 @@ public class MainChessA {
         }
     }
 
-    public static void truncateOptar() throws SQLException {
-        try(Connection cnx = Conx_A.getConnexion()){
-            cnx.createStatement().executeUpdate("TRUNCATE TABLE optar");
-        }
-    }
+
 
     // Unico metodo que tambien se llama en la clase MainChssB para calcular el tablon de premios, ya que el proceso es exactamente el mismo
     public static void globalUpdateGanador(Connection cnx, String nombre) throws SQLException {
@@ -77,7 +73,7 @@ public class MainChessA {
             System.out.println(pstm_up);
         }
     }
-    public static void insertGanadores(){
+    public static void insertCuadro(){
         try(Connection cnx = Conx_A.getConnexion()){
             Statement stm = cnx.createStatement();
             ResultSet rs = stm.executeQuery("SELECT nom_jugador FROM gen_clasifica ORDER BY posicion ASC");
@@ -89,7 +85,6 @@ public class MainChessA {
             throw new RuntimeException(ex);
         }
     }
-
 
 
 

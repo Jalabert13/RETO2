@@ -15,8 +15,10 @@ import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import manageopenA.Conx_A;
+import manageopenA.LoadChessA;
 import manageopenA.MainChessA;
 import manageopenB.Conx_B;
+import manageopenB.LoadChessB;
 import manageopenB.MainChessB;
 
 import java.io.IOException;
@@ -113,22 +115,44 @@ public class Controller{
     }
 
     @FXML
-    public void importData(ActionEvent event) throws IOException {
+    public void importDataBtn(ActionEvent event) throws IOException {
         final Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
         dialog.setResizable(false);
         Parent root = FXMLLoader.load(getClass().getResource("fxml/DataPopUp.fxml"));
         Scene dialog_scene = new Scene(root);
         dialog.setScene(dialog_scene);
-        if (ImportData.importAllCsv()){
+        if (ReloadData.bootCsv()){
             dialog.show();
         }
     }
 
+    @FXML
+    protected void updateBtn(ActionEvent event) throws IOException{
+        final Stage update_dialog = new Stage();
+        update_dialog.setTitle("Actualizar jugador");
+        update_dialog.initModality(Modality.APPLICATION_MODAL);
+        update_dialog.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/UpdateJugador.fxml"));
+        Scene dialog_scene = new Scene(root);
+        update_dialog.setScene(dialog_scene);
+        update_dialog.show();
+    }
+
+    @FXML
+    protected void addBtn(ActionEvent event) throws IOException{
+        final Stage update_dialog = new Stage();
+        update_dialog.setTitle("Insertar jugador");
+        update_dialog.initModality(Modality.APPLICATION_MODAL);
+        update_dialog.setResizable(false);
+        Parent root = FXMLLoader.load(getClass().getResource("fxml/AddJugador.fxml"));
+        Scene dialog_scene = new Scene(root);
+        update_dialog.setScene(dialog_scene);
+        update_dialog.show();
+    }
 
 
     // --- Cargar y visualizar datos en tablas de la interfaz
-
 
     //Jugadores
     @FXML
@@ -266,20 +290,19 @@ public class Controller{
     //Para cargar a lo que las tablas "opta", se hace truncate tanto al principio como al final de la funcion para que cada vez que se carguen los datos, se recalcule la tabla por si se hace algun cambio en los jugadoes"
     @FXML
     protected void cargarOptA(ActionEvent event) throws SQLException {
-        MainChessA.truncateOptar();
         initTabOpta();
         MainChessA.insertOptar();
         tablaOpc.setItems(fetchOptar(Conx_A.getConnexion()));
-        MainChessA.truncateOptar();
+        ReloadData.truncateOptar(Conx_A.getConnexion());
+
     }
 
     @FXML
     protected void cargarOptB(ActionEvent event) throws SQLException {
-        MainChessB.truncateOptar();
         initTabOpta();
         MainChessB.insertOptar();
         tablaOpc.setItems(fetchOptar(Conx_B.getConnexion()));
-        MainChessB.truncateOptar();
+        ReloadData.truncateOptar(Conx_B.getConnexion());
     }
 
     //Cuadro premios
@@ -301,7 +324,7 @@ public class Controller{
         prem_ganador.setCellValueFactory(new PropertyValueFactory<>("ganador"));
     }
 
-    public static ObservableList<CuadroPremios> fetchCuadro(Connection cnx){
+    private static ObservableList<CuadroPremios> fetchCuadro(Connection cnx){
         ObservableList<CuadroPremios> li_cuadro = FXCollections.observableArrayList();
         try(cnx){
             ResultSet rs = cnx.createStatement().executeQuery("SELECT * FROM cuadro_premios");
@@ -315,43 +338,36 @@ public class Controller{
     }
 
     @FXML
-    public void cargarCuadA(ActionEvent actionEvent) throws SQLException {
+    protected void cargarCuadA(ActionEvent actionEvent) throws SQLException {
+        MainChessA.insertOptar();
+        LoadChessA.csvclasif();
+        LoadChessA.csvtablon();
+
         initCuadro();
+        MainChessA.insertCuadro();
         tablaPre.setItems(fetchCuadro(Conx_A.getConnexion()));
 
+        ReloadData.truncateCuadro(Conx_A.getConnexion());
+        ReloadData.truncateClasif(Conx_A.getConnexion());
+        ReloadData.truncateOptar(Conx_A.getConnexion());
+
     }
 
     @FXML
-    public void cargarCuadB(ActionEvent actionEvent) throws SQLException {
+    protected void cargarCuadB(ActionEvent actionEvent) throws SQLException {
+        MainChessB.insertOptar();
+        LoadChessB.csvclasif();
+        LoadChessB.csvtablon();
+
         initCuadro();
+        MainChessB.insertCuadro();
         tablaPre.setItems(fetchCuadro(Conx_B.getConnexion()));
+
+        ReloadData.truncateCuadro(Conx_B.getConnexion());
+        ReloadData.truncateClasif(Conx_B.getConnexion());
+        ReloadData.truncateOptar(Conx_B.getConnexion());
     }
 
-
-
-    //Dialogo para actualizar jugador
-
-    @FXML
-    private TextField inputNomJug;
-    @FXML
-    private ChoiceBox choiceAtributo;
-
-
-    public void updateBtn(ActionEvent event) throws IOException{
-        final Stage update_dialog = new Stage();
-        update_dialog.initModality(Modality.APPLICATION_MODAL);
-        update_dialog.setResizable(false);
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/UpdateJugador.fxml"));
-        Scene dialog_scene = new Scene(root);
-        update_dialog.setScene(dialog_scene);
-        update_dialog.show();
-    }
-
-    public void applyUpdate(ActionEvent event) throws IOException{
-        String nomjug = inputNomJug.getText();
-        String field = (String) choiceAtributo.getValue();
-
-    }
 
 
 

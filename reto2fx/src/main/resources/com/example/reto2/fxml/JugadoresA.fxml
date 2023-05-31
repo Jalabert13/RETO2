@@ -23,8 +23,7 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="956.0" layoutY="387.0" mnemonicParsing="false" onAction="#cargarJugA" prefHeight="43.0" prefWidth="112.0" text="Cargar" textFill="WHITE" />
-      <TextField fx:id="findJug" layoutX="139.0" layoutY="181.0" prefHeight="24.0" prefWidth="731.0" promptText="Buscar" />
-      <Button layoutX="876.0" layoutY="181.0" mnemonicParsing="false" onAction="#updateBtn" prefHeight="24.0" prefWidth="58.0" text="Edit" textFill="WHITE" />
+      <TextField fx:id="findJug" layoutX="139.0" layoutY="181.0" prefHeight="24.0" prefWidth="799.0" promptText="Buscar" />
    </children>
    <stylesheets>
       <URL value="@../css/style.css" />

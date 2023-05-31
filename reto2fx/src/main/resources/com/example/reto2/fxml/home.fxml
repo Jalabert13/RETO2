@@ -44,12 +44,12 @@
             <Image url="@../img/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="326.0" layoutY="589.0" mnemonicParsing="false" onAction="#importData" prefHeight="80.0" prefWidth="258.0" text="Importar datos" textFill="WHITE">
+      <Button layoutX="326.0" layoutY="589.0" mnemonicParsing="false" onAction="#importDataBtn" prefHeight="80.0" prefWidth="258.0" text="Importar datos" textFill="WHITE">
          <effect>
             <Blend />
          </effect></Button>
    </children>
    <stylesheets>
-      <URL value="@../css/style.css" />
+      <URL value="@../css/style.css"/>
    </stylesheets>
 </AnchorPane>

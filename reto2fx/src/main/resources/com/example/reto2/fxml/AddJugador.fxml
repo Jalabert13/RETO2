@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="398.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.ModifyController">
+   <children>
+      <Group layoutX="36.0" layoutY="26.0">
+         <children>
+            <TextField fx:id="newNombre" layoutY="30.0" prefHeight="24.0" prefWidth="249.0" promptText="Introduce nombre" />
+            <Label contentDisplay="RIGHT" text="Nombre" textAlignment="RIGHT" />
+         </children>
+      </Group>
+      <Group layoutX="36.0" layoutY="106.0">
+         <children>
+            <TextField fx:id="newIdFide" layoutY="30.0" prefHeight="24.0" prefWidth="249.0" promptText="Introduce idfide" />
+            <Label contentDisplay="RIGHT" text="Id Fide" textAlignment="RIGHT" />
+         </children>
+      </Group>
+      <Group layoutX="36.0" layoutY="186.0">
+         <children>
+            <TextField fx:id="newElo" layoutY="30.0" prefHeight="24.0" prefWidth="249.0" promptText="Introduce elo" />
+            <Label contentDisplay="RIGHT" text="Elo" textAlignment="RIGHT" />
+         </children>
+      </Group>
+      <Group layoutX="36.0" layoutY="270.0">
+         <children>
+            <TextField fx:id="newClub" layoutY="30.0" prefHeight="24.0" prefWidth="249.0" promptText="Introduce club" />
+            <Label contentDisplay="RIGHT" text="Club" textAlignment="RIGHT" />
+         </children>
+      </Group>
+      <Group layoutX="36.0" layoutY="435.0" />
+
+      <Label layoutX="36.0" layoutY="352.0" text="Torneo" />
+      <ChoiceBox fx:id="newTorneo" layoutX="36.0" layoutY="380.0" prefWidth="150.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="OPEN A" />
+               <String fx:value="OPEN B" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+
+      <CheckBox fx:id="newHuesped" contentDisplay="TOP" layoutX="36.0" layoutY="435.0" mnemonicParsing="false" text="Marca si esta alojado" />
+      <Button layoutX="140.0" layoutY="489.0" mnemonicParsing="false" onAction="#newInsertBtn" prefHeight="39.0" prefWidth="93.0" text="Insertar" />
+      <Label fx:id="errorNew" layoutX="246.0" layoutY="501.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
