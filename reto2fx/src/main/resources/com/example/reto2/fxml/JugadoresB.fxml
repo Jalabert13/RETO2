@@ -5,6 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Font?>
 <AnchorPane id="AnchorJugB" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
        <ImageView fitHeight="113.0" fitWidth="355.0" layoutX="368.0" layoutY="14.0">
@@ -25,6 +26,11 @@
        <Button layoutX="958.0" layoutY="390.0" mnemonicParsing="false" onAction="#cargarJugB" prefHeight="43.0" prefWidth="112.0" text="Cargar" textFill="WHITE" />
       <TextField fx:id="findJug" layoutX="139.0" layoutY="177.0" prefHeight="24.0" prefWidth="799.0" promptText="Buscar" />
    </children>
+    <Label layoutX="139.0" layoutY="144.0" text="OPEN B">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
    <stylesheets>
       <URL value="@../css/style.css" />
    </stylesheets>

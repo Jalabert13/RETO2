@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorJugB" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
@@ -22,6 +23,11 @@
          </columnResizePolicy>
       </TableView>
       <Button layoutX="960.0" layoutY="400.0" mnemonicParsing="false" onAction="#cargarOptB" prefHeight="42.0" prefWidth="94.0" text="Cargar" textFill="WHITE" />
+       <Label layoutX="171.0" layoutY="178.0" text="OPEN B">
+           <font>
+               <Font name="System Bold" size="24.0" />
+           </font>
+       </Label>
    </children>
    <stylesheets>
       <URL value="@../css/style.css" />

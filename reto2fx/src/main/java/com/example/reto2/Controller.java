@@ -290,6 +290,7 @@ public class Controller{
     //Para cargar a lo que las tablas "opta", se hace truncate tanto al principio como al final de la funcion para que cada vez que se carguen los datos, se recalcule la tabla por si se hace algun cambio en los jugadoes"
     @FXML
     protected void cargarOptA(ActionEvent event) throws SQLException {
+        ReloadData.truncateOptar(Conx_A.getConnexion());
         initTabOpta();
         MainChessA.insertOptar();
         tablaOpc.setItems(fetchOptar(Conx_A.getConnexion()));
@@ -299,6 +300,7 @@ public class Controller{
 
     @FXML
     protected void cargarOptB(ActionEvent event) throws SQLException {
+        ReloadData.truncateOptar(Conx_B.getConnexion());
         initTabOpta();
         MainChessB.insertOptar();
         tablaOpc.setItems(fetchOptar(Conx_B.getConnexion()));

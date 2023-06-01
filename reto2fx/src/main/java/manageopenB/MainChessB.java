@@ -6,8 +6,7 @@ import manageopenA.MainChessA;
 import java.sql.*;
 
 public class MainChessB {
-    public static void main(String[] args) {
-    }
+
     public static void insertOptar() {
         try(Connection cnx = Conx_B.getConnexion()){
             String idfide;
@@ -24,16 +23,15 @@ public class MainChessB {
                 pstm.executeUpdate();
                 System.out.println(pstm);
 
-                if (rs.getInt("elo") < 1800 && rs.getInt("elo") >= 1600){
+                if (rs.getInt("elo") < 1800){
                     pstm.setString(3, "SUB1800");
                     pstm.executeUpdate();
                     System.out.println(pstm);
-                }else if (rs.getInt("elo") < 1600 && rs.getInt("elo") >= 1400){
+
                     pstm.setString(3, "SUB1600");
                     pstm.executeUpdate();
                     System.out.println(pstm);
 
-                }else if (rs.getInt("elo") < 1400){
                     pstm.setString(3, "SUB1400");
                     pstm.executeUpdate();
                     System.out.println(pstm);

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorJugA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
@@ -21,7 +22,12 @@
             <TableColumn fx:id="prem_ganador" prefWidth="305.0" text="ganador" />
         </columns>
       </TableView>
-      <Button layoutX="958.0" layoutY="397.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="94.0" text="Cargar" onAction="#cargarCuadA" textFill="WHITE" />
+      <Button layoutX="958.0" layoutY="397.0" mnemonicParsing="false" onAction="#cargarCuadA" prefHeight="41.0" prefWidth="94.0" text="Cargar" textFill="WHITE" />
+       <Label layoutX="171.0" layoutY="179.0" text="OPEN A">
+           <font>
+               <Font name="System Bold" size="24.0" />
+           </font>
+       </Label>
    </children>
    <stylesheets>
       <URL value="@../css/style.css" />

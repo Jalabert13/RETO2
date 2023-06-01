@@ -35,6 +35,7 @@ public class ReloadData {
 
     public static void truncateClasif(Connection cnx) throws SQLException{
         try(cnx){
+            cnx.createStatement().execute("SET FOREIGN_KEY_CHECKS = 0");
             cnx.createStatement().executeUpdate("TRUNCATE TABLE gen_clasifica");
         }
     }

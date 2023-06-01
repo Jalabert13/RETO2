@@ -4,6 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane id="AnchorJugA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
@@ -24,6 +25,11 @@
       </TableView>
       <Button layoutX="956.0" layoutY="387.0" mnemonicParsing="false" onAction="#cargarJugA" prefHeight="43.0" prefWidth="112.0" text="Cargar" textFill="WHITE" />
       <TextField fx:id="findJug" layoutX="139.0" layoutY="181.0" prefHeight="24.0" prefWidth="799.0" promptText="Buscar" />
+      <Label layoutX="139.0" layoutY="144.0" text="OPEN A">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
    <stylesheets>
       <URL value="@../css/style.css" />

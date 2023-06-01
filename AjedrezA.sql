@@ -31,11 +31,11 @@ CREATE TABLE `gen_clasifica` (
 
 
 CREATE TABLE `jugador` (
-  `idfide` varchar(15) NOT NULL,
   `nom_jugador` varchar(50) NOT NULL,
   `elo` int(5) NOT NULL,
-  `huesped` tinyint(1) NOT NULL,
-  `club` varchar(30) NOT NULL
+  `idfide` varchar(15) NOT NULL,
+  `club` varchar(30) NOT NULL,
+  `huesped` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -116,6 +116,7 @@ ALTER TABLE `optar`
   ADD CONSTRAINT `fk_opt_idfide` FOREIGN KEY (`idfide`) REFERENCES `jugador` (`idfide`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_opt_premio` FOREIGN KEY (`tipo_premio`) REFERENCES `Premio` (`tipo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
