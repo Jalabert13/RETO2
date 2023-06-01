@@ -23,7 +23,21 @@ public class MainChessB {
                 pstm.executeUpdate();
                 System.out.println(pstm);
 
-                if (rs.getInt("elo") < 1800){
+                if (rs.getInt("elo") < 1800 && rs.getInt("elo") >= 1600){
+                    pstm.setString(3, "SUB1800");
+                    pstm.executeUpdate();
+                    System.out.println(pstm);
+
+                }else if (rs.getInt("elo") < 1600 && rs.getInt("elo") >= 1400){
+                    pstm.setString(3, "SUB1800");
+                    pstm.executeUpdate();
+                    System.out.println(pstm);
+
+                    pstm.setString(3, "SUB1600");
+                    pstm.executeUpdate();
+                    System.out.println(pstm);
+
+                } else if (rs.getInt("elo") < 1400) {
                     pstm.setString(3, "SUB1800");
                     pstm.executeUpdate();
                     System.out.println(pstm);

@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorJugA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
+<AnchorPane id="AnchorJugA" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1091.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.reto2.Controller">
    <children>
       <AnchorPane layoutX="-5.0" prefHeight="697.0" prefWidth="421.0">
          <children>
@@ -21,7 +21,7 @@
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="475.0" mnemonicParsing="false" onAction="#boton_optA" prefHeight="93.0" prefWidth="143.0" text="OPCIONES&#10;&#10;" textAlignment="CENTER" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <ImageView fitHeight="517.0" fitWidth="684.0" layoutX="393.0" layoutY="90.0">
+      <ImageView blendMode="OVERLAY" fitHeight="517.0" fitWidth="684.0" layoutX="407.0" layoutY="103.0">
          <image>
             <Image url="@../img/bg2_a.jpeg" />
          </image>
